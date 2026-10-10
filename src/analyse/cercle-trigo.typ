@@ -12,7 +12,7 @@
 //                                     propre #canvas({ ... }) pour compléter
 //                                     la figure (comme le \CercleTrigo dans
 //                                     un tikzpicture).
-#import "deps.typ": cetz
+#import "../deps.typ": cetz
 
 // Angles remarquables (en degrés) avec leur étiquette dans ]-π ; π] ...
 #let _angles-moins-pi = (

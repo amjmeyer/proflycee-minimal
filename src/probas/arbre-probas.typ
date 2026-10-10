@@ -55,7 +55,7 @@
 //
 // Le type peut être n'importe quel « pxq » (p branches puis q branches) :
 // ProfLycee se limite à 2 ou 3.
-#import "deps.typ": cetz
+#import "../deps.typ": cetz
 
 #let arbre-probas-dessin(
   donnees,

@@ -26,7 +26,7 @@
 // Exemples :
 //   $98 equiv #reste-mod(98, 9) space [9]$, $98 equiv #reste-mod(98, 9, negatif: true) space [9]$
 //   $7^50 equiv #reste-mod(7, 8, puissance: 50) space [8]$
-#import "outils.typ": _nombre
+#import "../outils.typ": _nombre
 
 // a^e modulo n, par carrés successifs (reste dans [0 ; |n|[).
 #let _puissance-mod(a, e, n) = {

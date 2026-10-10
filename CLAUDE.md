@@ -9,20 +9,22 @@ Même organisation que `../to-be-published_profmaquette-minimal` (à imiter).
 - [src/lib.typ](src/lib.typ) — point d'entrée (déclaré dans `typst.toml`), ne
   fait qu'exporter les fonctions publiques ; tient la table de correspondance
   commande ProfLycee → fonction Typst.
-- Une commande ProfLycee par fichier : [src/cercle-trigo.typ](src/cercle-trigo.typ),
-  [src/pgcd.typ](src/pgcd.typ) (`presentation-pgcd` et `remontee-euclide`,
-  cette dernière absente de ProfLycee), [src/probas.typ](src/probas.typ)
-  (calculs de probabilités, §52), [src/arbre-probas.typ](src/arbre-probas.typ)
-  (§53), [src/loi-graphe.typ](src/loi-graphe.typ) (§54 ancienne
-  numérotation), [src/modulo.typ](src/modulo.typ),
-  [src/conversion-bases.typ](src/conversion-bases.typ),
-  [src/division-eucl.typ](src/division-eucl.typ) (§52–54 de la doc 4.02b).
+- Une commande ProfLycee par fichier, rangée par thème dans `src/analyse/`,
+  `src/arithmetique/` ou `src/probas/` (dossiers sans accent) : [src/analyse/cercle-trigo.typ](src/analyse/cercle-trigo.typ),
+  [src/arithmetique/pgcd.typ](src/arithmetique/pgcd.typ) (`presentation-pgcd` et `remontee-euclide`,
+  cette dernière absente de ProfLycee), [src/probas/probas.typ](src/probas/probas.typ)
+  (calculs de probabilités, §52), [src/probas/arbre-probas.typ](src/probas/arbre-probas.typ)
+  (§53), [src/probas/loi-graphe.typ](src/probas/loi-graphe.typ) (§54 ancienne
+  numérotation), [src/arithmetique/modulo.typ](src/arithmetique/modulo.typ),
+  [src/arithmetique/conversion-bases.typ](src/arithmetique/conversion-bases.typ),
+  [src/arithmetique/division-eucl.typ](src/arithmetique/division-eucl.typ) (§52–54 de la doc 4.02b).
   Outils communs non exportés (`_nombre`…) : [src/outils.typ](src/outils.typ).
   Les numéros de section citent la doc ProfLycee 4.02b (en local :
   `~/texmf/tex/latex/cpierquet/proflycee/doc/ProfLycee-doc.pdf`, l'ancienne
   4.00f, plus complète, à côté). Clés documentées en commentaire en
   tête de chaque fichier : source de vérité.
-- [src/deps.typ](src/deps.typ) — seul endroit qui importe `@preview/cetz`.
+- [src/deps.typ](src/deps.typ) — seul endroit (importé par `../deps.typ`
+  depuis les sous-dossiers) qui importe `@preview/cetz`.
 - [tests/beta/](tests/beta/) — un cas par fichier, compilés par
   `tests/lancer.sh` (sortie dans `tests/sortie/`, ignorée par git) ; contrôle
   visuel manuel.

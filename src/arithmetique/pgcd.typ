@@ -37,7 +37,7 @@
 //   D'après l'algorithme d'Euclide, #presentation-pgcd(150, 27, couleur-resultat: true).
 //   #remontee-euclide(150, 27)
 
-#import "outils.typ": _nombre
+#import "../outils.typ": _nombre
 
 // Divisions euclidiennes successives de a par b : tableau de
 // (dividende, diviseur, quotient, reste), jusqu'au reste nul compris.

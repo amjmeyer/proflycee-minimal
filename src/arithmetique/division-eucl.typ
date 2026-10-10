@@ -27,7 +27,7 @@
 // Exemples :
 //   #div-eucl(145, 7, aff-verif: true)
 //   #div-eucl(123456789, 8547, vide: true, pointilles: box(width: 1cm, repeat[.]))
-#import "outils.typ": _nombre, _facteur
+#import "../outils.typ": _nombre, _facteur
 
 #let _division(a, b) = {
   assert(

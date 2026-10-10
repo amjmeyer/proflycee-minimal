@@ -8,18 +8,18 @@
 // paquet LaTeX ProfLycee (Cédric Pierquet). Point d'entrée déclaré dans
 // typst.toml : seules les fonctions ci-dessous sont exportées.
 //
-// Organisation de src/ :
-//   lib.typ                  ce fichier
-//   deps.typ                 dépendances externes (cetz)
-//   cercle-trigo.typ         une commande ProfLycee par fichier
-//   pgcd.typ
-//   probas.typ
-//   arbre-probas.typ
-//   loi-graphe.typ
-//   modulo.typ
-//   conversion-bases.typ
-//   division-eucl.typ
-//   outils.typ               outils communs (non exportés)
+// Organisation de src/ (une commande ProfLycee par fichier, rangées par thème) :
+//   lib.typ                      ce fichier
+//   deps.typ                     dépendances externes (cetz)
+//   outils.typ                   outils communs (non exportés)
+//   analyse/cercle-trigo.typ
+//   arithmetique/pgcd.typ
+//   arithmetique/modulo.typ
+//   arithmetique/conversion-bases.typ
+//   arithmetique/division-eucl.typ
+//   probas/probas.typ
+//   probas/arbre-probas.typ
+//   probas/loi-graphe.typ
 //
 // Correspondance avec ProfLycee :
 //   \CercleTrigo  →  cercle-trigo (canvas autonome)
@@ -44,16 +44,21 @@
 //   \DivisionEucl      →  division-eucl
 //   \DivEucl           →  div-eucl
 
-#import "cercle-trigo.typ": cercle-trigo, cercle-trigo-dessin
-#import "pgcd.typ": presentation-pgcd, remontee-euclide
-#import "probas.typ": (
+// Analyse
+#import "analyse/cercle-trigo.typ": cercle-trigo, cercle-trigo-dessin
+
+// Arithmétique
+#import "arithmetique/pgcd.typ": presentation-pgcd, remontee-euclide
+#import "arithmetique/modulo.typ": reste-mod, quo-mod, modulo
+#import "arithmetique/conversion-bases.typ": conversion-entre-bases, conversion
+#import "arithmetique/division-eucl.typ": division-eucl, div-eucl
+
+// Probabilités
+#import "probas/probas.typ": (
   loi-binomiale, loi-poisson, loi-geometrique, loi-hypergeometrique, loi-normale, loi-exponentielle,
   calc-binom-p, calc-binom-c, calc-poiss-p, calc-poiss-c, calc-geom-p, calc-geom-c,
   calc-hypergeom-p, calc-hypergeom-c, calc-norm-c, calc-expo-c,
   binom-p, binom-c, poisson-p, poisson-c, geom-p, geom-c, hypergeom-p, hypergeom-c, normale-c, expo-c,
 )
-#import "arbre-probas.typ": arbre-probas, arbre-probas-dessin
-#import "loi-graphe.typ": loi-normale-graphe, loi-normale-graphe-dessin, loi-expo-graphe, loi-expo-graphe-dessin
-#import "modulo.typ": reste-mod, quo-mod, modulo
-#import "conversion-bases.typ": conversion-entre-bases, conversion
-#import "division-eucl.typ": division-eucl, div-eucl
+#import "probas/arbre-probas.typ": arbre-probas, arbre-probas-dessin
+#import "probas/loi-graphe.typ": loi-normale-graphe, loi-normale-graphe-dessin, loi-expo-graphe, loi-expo-graphe-dessin
