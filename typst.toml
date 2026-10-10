@@ -11,6 +11,7 @@ keywords = [
   "PGCD", "GCD", "Euclide", "Euclid", "Bézout",
   "probabilités", "probability", "arbre", "tree", "loi normale", "binomiale",
   "modulo", "division euclidienne", "Euclidean division", "base conversion",
+  "diviseurs", "divisors", "facteurs premiers", "prime factorization",
   "lycée", "enseignement", "teaching", "cetz",
 ]
 categories = ["visualization", "components"]

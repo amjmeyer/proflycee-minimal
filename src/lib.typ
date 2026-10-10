@@ -12,11 +12,13 @@
 //   lib.typ                      ce fichier
 //   deps.typ                     dépendances externes (cetz)
 //   outils.typ                   outils communs (non exportés)
+//   arbre.typ                    moteur commun des arbres (non exporté)
 //   analyse/cercle-trigo.typ
 //   arithmetique/pgcd.typ
 //   arithmetique/modulo.typ
 //   arithmetique/conversion-bases.typ
 //   arithmetique/division-eucl.typ
+//   arithmetique/diviseurs.typ
 //   probas/probas.typ
 //   probas/arbre-probas.typ
 //   probas/loi-graphe.typ
@@ -43,6 +45,11 @@
 //   (pas d'équivalent) →  conversion(sens) (la fonction nb => …)
 //   \DivisionEucl      →  division-eucl
 //   \DivEucl           →  div-eucl
+//   \ListeDiviseurs    →  liste-div
+//   \ArbreDiviseurs    →  arbre-div (+ arbre-div-dessin)
+//   \DecompFactPremiers → dpfp (noms abrégés pour le §60)
+//   \PresFactPremiers  →  prespfp
+//   \SimplFracDecomp   →  simpfrac
 
 // Analyse
 #import "analyse/cercle-trigo.typ": cercle-trigo, cercle-trigo-dessin
@@ -52,6 +59,10 @@
 #import "arithmetique/modulo.typ": reste-mod, quo-mod, modulo
 #import "arithmetique/conversion-bases.typ": conversion-entre-bases, conversion
 #import "arithmetique/division-eucl.typ": division-eucl, div-eucl
+#import "arithmetique/diviseurs.typ": (
+  liste-div, arbre-div, arbre-div-dessin,
+  dpfp, prespfp, simpfrac,
+)
 
 // Probabilités
 #import "probas/probas.typ": (

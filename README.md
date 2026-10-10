@@ -10,7 +10,9 @@ avec les lois classiques (`\CalcBinomP`, `\BinomP`, …), arbres
 (`\ArbreProbasTikz`) et petits schémas des lois normale et exponentielle
 (`\LoiNormaleGraphe`, `\LoiExpoGraphe`), et l'arithmétique : réduction modulo
 (`\ResteMod`, `\QuoMod`), conversions entre bases (`\ConversionEntreBases`)
-et division euclidienne (`\DivisionEucl`, `\DivEucl`).
+division euclidienne (`\DivisionEucl`, `\DivEucl`), diviseurs et facteurs
+premiers (`\ListeDiviseurs`, `\ArbreDiviseurs`, `\DecompFactPremiers`,
+`\PresFactPremiers`, `\SimplFracDecomp`).
 
 Ajout propre à ce paquet : des fonctions fabriquées une fois pour toutes
 (une loi de probabilité, une réduction modulo n, une conversion de base),
@@ -35,8 +37,8 @@ $1234 equiv #m26(1234) space [26]$
 (in French). For now: the trigonometric circle, Euclid's algorithm with
 automatic back-substitution (Bézout coefficients), probability computations
 for the usual distributions, probability trees and small sketches of normal
-and exponential densities, modular reduction, base conversions and
-Euclidean division.*
+and exponential densities, modular reduction, base conversions,
+Euclidean division, divisors (with a divisor tree) and prime factorisation.*
 
 
 ## Licence

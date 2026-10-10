@@ -17,7 +17,11 @@ Même organisation que `../to-be-published_profmaquette-minimal` (à imiter).
   (§53), [src/probas/loi-graphe.typ](src/probas/loi-graphe.typ) (§54 ancienne
   numérotation), [src/arithmetique/modulo.typ](src/arithmetique/modulo.typ),
   [src/arithmetique/conversion-bases.typ](src/arithmetique/conversion-bases.typ),
-  [src/arithmetique/division-eucl.typ](src/arithmetique/division-eucl.typ) (§52–54 de la doc 4.02b).
+  [src/arithmetique/division-eucl.typ](src/arithmetique/division-eucl.typ) (§52–54 de la doc 4.02b),
+  [src/arithmetique/diviseurs.typ](src/arithmetique/diviseurs.typ) (§60 :
+  diviseurs, arbre des diviseurs, facteurs premiers).
+  Moteur commun des arbres (`arbre-probas`, `arbre-div`), non
+  exporté : [src/arbre.typ](src/arbre.typ).
   Outils communs non exportés (`_nombre`…) : [src/outils.typ](src/outils.typ).
   Les numéros de section citent la doc ProfLycee 4.02b (en local :
   `~/texmf/tex/latex/cpierquet/proflycee/doc/ProfLycee-doc.pdf`, l'ancienne
@@ -64,7 +68,10 @@ Même organisation que `../to-be-published_profmaquette-minimal` (à imiter).
   l'accolade et le trait de `lr(…)` descendent bien trop bas.
 
 - Dans `cercle-trigo-dessin`, les clés `cos` et `sin` masquent les opérateurs
-  mathématiques : écrire `#math.cos` / `#math.sin` dans les `$…$`.
+  mathématiques : écrire `#math.cos` / `#math.sin` dans les `$…$`. Même
+  piège pour la clé `scr` de `liste-div` (`#math.scr`).
+- `tableau.remove(i)` renvoie l'élément retiré : dans un bloc qui produit du
+  contenu, écrire `let _ = tableau.remove(i)`, sinon il est ajouté au résultat.
 - Le dossier `src/` est relié par lien symbolique depuis
   `MATHEMATIQUES/PREAMBULE_PERSO_Typst/proflycee-minimal` (relais
   `proflycee-dev.typ`) : toute modification s'applique aussitôt aux cours.
