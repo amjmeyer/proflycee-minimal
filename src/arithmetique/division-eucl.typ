@@ -34,8 +34,9 @@
     type(a) == int and type(b) == int and b != 0,
     message: "division euclidienne : a et b entiers, b non nul",
   )
-  let q = calc.div-euclid(a, b)
-  (q, a - b * q)
+  // reste calculé directement : a – b × q peut dépasser les entiers 64 bits
+  // près de leurs bornes, même quand q et r sont représentables
+  (calc.div-euclid(a, b), calc.rem-euclid(a, b))
 }
 
 #let division-eucl(a, b) = {

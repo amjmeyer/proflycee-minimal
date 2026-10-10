@@ -12,7 +12,7 @@ Même organisation que `../to-be-published_profmaquette-minimal` (à imiter).
 - Une commande ProfLycee par fichier, rangée par thème dans `src/analyse/`,
   `src/arithmetique/` ou `src/probas/` (dossiers sans accent) : [src/analyse/cercle-trigo.typ](src/analyse/cercle-trigo.typ),
   [src/arithmetique/pgcd.typ](src/arithmetique/pgcd.typ) (`presentation-pgcd` et `remontee-euclide`,
-  cette dernière absente de ProfLycee), [src/probas/probas.typ](src/probas/probas.typ)
+  cette dernière absente de ProfLycee), [src/probas/calculs-lois.typ](src/probas/calculs-lois.typ)
   (calculs de probabilités, §52), [src/probas/arbre-probas.typ](src/probas/arbre-probas.typ)
   (§53), [src/probas/loi-graphe.typ](src/probas/loi-graphe.typ) (§54 ancienne
   numérotation), [src/arithmetique/modulo.typ](src/arithmetique/modulo.typ),
@@ -29,9 +29,17 @@ Même organisation que `../to-be-published_profmaquette-minimal` (à imiter).
   tête de chaque fichier : source de vérité.
 - [src/deps.typ](src/deps.typ) — seul endroit (importé par `../deps.typ`
   depuis les sous-dossiers) qui importe `@preview/cetz`.
-- [tests/beta/](tests/beta/) — un cas par fichier, compilés par
-  `tests/lancer.sh` (sortie dans `tests/sortie/`, ignorée par git) ; contrôle
-  visuel manuel.
+- Tests, tous lancés par `tests/lancer.sh` (sortie dans `tests/sortie/`,
+  ignorée par git ; code de sortie = nombre d'échecs) :
+  - [tests/beta/](tests/beta/) — un cas par fichier, contrôle visuel manuel ;
+  - [tests/unitaires/](tests/unitaires/) — un fichier par `.typ` de `src/`,
+    vérifications automatiques (`assert`) ; outils dans
+    [tests/unitaires/aide.typ](tests/unitaires/aide.typ) : `texte(c)`
+    (contenu → texte brut comparable), `egal`, `proche`, `releve`/`couleurs`
+    (couleurs réellement employées) ;
+  - [tests/erreurs/](tests/erreurs/) — entrées invalides, chaque fichier doit
+    échouer avec le message de sa 1re ligne (`// attendu : …`).
+  Toute nouvelle commande : ajouter ses tests unitaires et d'erreurs.
 - `PUBLIER.md` — procédure de publication (pas sur GitHub).
 
 ## Conventions
@@ -72,6 +80,16 @@ Même organisation que `../to-be-published_profmaquette-minimal` (à imiter).
   piège pour la clé `scr` de `liste-div` (`#math.scr`).
 - `tableau.remove(i)` renvoie l'élément retiré : dans un bloc qui produit du
   contenu, écrire `let _ = tableau.remove(i)`, sinon il est ajouté au résultat.
+- Typst arrête une boucle `while` au-delà de 10 000 tours (« loop seems to be
+  infinite ») ; les `for` ne sont pas limités. D'où la limite de 10^8 de la
+  décomposition en facteurs premiers.
+- `calc.pow(0, 0)` est une erreur : traiter l'exposant nul à part.
+- Entiers 64 bits : `a - b * q` peut déborder près des bornes même si le
+  résultat tient ; préférer `calc.rem-euclid`.
+- Les styles (couleur, `math.display`, `scr`/`cal`) n'apparaissent pas dans
+  `repr` : pour les tester, mesurer (`measure`) ou relever avec une règle
+  `show` (voir `releve` dans `tests/unitaires/aide.typ`).
+- Une fonction locale (closure) ne peut pas modifier une variable extérieure.
 - Le dossier `src/` est relié par lien symbolique depuis
   `MATHEMATIQUES/PREAMBULE_PERSO_Typst/proflycee-minimal` (relais
   `proflycee-dev.typ`) : toute modification s'applique aussitôt aux cours.

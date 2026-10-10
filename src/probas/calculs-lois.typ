@@ -196,7 +196,8 @@
 )
 
 #let loi-geometrique(p) = _loi-discrete(
-  k => p * calc.pow(1 - p, k - 1),
+  // k = 1 à part : calc.pow(0, 0) est refusé quand p = 1
+  k => if k == 1 { float(p) } else { p * calc.pow(1 - p, k - 1) },
   1,
   none,
 )
@@ -221,31 +222,40 @@
 // Commandes ProfLycee
 
 // Fabrique d'une commande « à plat » : les derniers arguments (`nb-bornes`)
-// sont les bornes, les précédents les paramètres de la loi.
-#let _commande(loi, nb-bornes, ..fixes) = (..args) => {
-  let pos = args.pos()
-  let i = pos.len() - nb-bornes
-  loi(..pos.slice(0, i))(..pos.slice(i), ..args.named(), ..fixes)
+// sont les bornes, les précédents les paramètres de la loi. La signature
+// (« binom-p(n, p, k) ») sert au contrôle du nombre d'arguments et au
+// message d'erreur.
+#let _commande(signature, loi, nb-bornes, ..fixes) = {
+  let nb = signature.split(",").len()
+  (..args) => {
+    let pos = args.pos()
+    assert(
+      pos.len() == nb,
+      message: signature + " : " + str(nb) + " arguments attendus, " + str(pos.len()) + if pos.len() > 1 { " reçus" } else { " reçu" },
+    )
+    let i = pos.len() - nb-bornes
+    loi(..pos.slice(0, i))(..pos.slice(i), ..args.named(), ..fixes)
+  }
 }
 
-#let calc-binom-p = _commande(loi-binomiale, 1, brut: true)
-#let calc-binom-c = _commande(loi-binomiale, 2, brut: true)
-#let calc-poiss-p = _commande(loi-poisson, 1, brut: true)
-#let calc-poiss-c = _commande(loi-poisson, 2, brut: true)
-#let calc-geom-p = _commande(loi-geometrique, 1, brut: true)
-#let calc-geom-c = _commande(loi-geometrique, 2, brut: true)
-#let calc-hypergeom-p = _commande(loi-hypergeometrique, 1, brut: true)
-#let calc-hypergeom-c = _commande(loi-hypergeometrique, 2, brut: true)
-#let calc-norm-c = _commande(loi-normale, 2, brut: true)
-#let calc-expo-c = _commande(loi-exponentielle, 2, brut: true)
+#let calc-binom-p = _commande("calc-binom-p(n, p, k)", loi-binomiale, 1, brut: true)
+#let calc-binom-c = _commande("calc-binom-c(n, p, a, b)", loi-binomiale, 2, brut: true)
+#let calc-poiss-p = _commande("calc-poiss-p(l, k)", loi-poisson, 1, brut: true)
+#let calc-poiss-c = _commande("calc-poiss-c(l, a, b)", loi-poisson, 2, brut: true)
+#let calc-geom-p = _commande("calc-geom-p(p, k)", loi-geometrique, 1, brut: true)
+#let calc-geom-c = _commande("calc-geom-c(p, a, b)", loi-geometrique, 2, brut: true)
+#let calc-hypergeom-p = _commande("calc-hypergeom-p(N, n, m, k)", loi-hypergeometrique, 1, brut: true)
+#let calc-hypergeom-c = _commande("calc-hypergeom-c(N, n, m, a, b)", loi-hypergeometrique, 2, brut: true)
+#let calc-norm-c = _commande("calc-norm-c(m, s, a, b)", loi-normale, 2, brut: true)
+#let calc-expo-c = _commande("calc-expo-c(l, a, b)", loi-exponentielle, 2, brut: true)
 
-#let binom-p = _commande(loi-binomiale, 1)
-#let binom-c = _commande(loi-binomiale, 2)
-#let poisson-p = _commande(loi-poisson, 1)
-#let poisson-c = _commande(loi-poisson, 2)
-#let geom-p = _commande(loi-geometrique, 1)
-#let geom-c = _commande(loi-geometrique, 2)
-#let hypergeom-p = _commande(loi-hypergeometrique, 1)
-#let hypergeom-c = _commande(loi-hypergeometrique, 2)
-#let normale-c = _commande(loi-normale, 2)
-#let expo-c = _commande(loi-exponentielle, 2)
+#let binom-p = _commande("binom-p(n, p, k)", loi-binomiale, 1)
+#let binom-c = _commande("binom-c(n, p, a, b)", loi-binomiale, 2)
+#let poisson-p = _commande("poisson-p(l, k)", loi-poisson, 1)
+#let poisson-c = _commande("poisson-c(l, a, b)", loi-poisson, 2)
+#let geom-p = _commande("geom-p(p, k)", loi-geometrique, 1)
+#let geom-c = _commande("geom-c(p, a, b)", loi-geometrique, 2)
+#let hypergeom-p = _commande("hypergeom-p(N, n, m, k)", loi-hypergeometrique, 1)
+#let hypergeom-c = _commande("hypergeom-c(N, n, m, a, b)", loi-hypergeometrique, 2)
+#let normale-c = _commande("normale-c(m, s, a, b)", loi-normale, 2)
+#let expo-c = _commande("expo-c(l, a, b)", loi-exponentielle, 2)

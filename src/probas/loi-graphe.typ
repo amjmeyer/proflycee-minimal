@@ -36,7 +36,7 @@
 //   #loi-normale-graphe(1000, 100, 950, none, affiche-m: false, couleur-courbe: blue, couleur-aire: aqua, baseline: "axe")
 //   #loi-expo-graphe(0.00025, 5000, none, largeur: 4, hauteur: 2)
 #import "../deps.typ": cetz
-#import "probas.typ": _grouper
+#import "calculs-lois.typ": _grouper
 
 // Hauteur de l'axe des abscisses au-dessus du bas du schéma (cm) : place
 // pour la valeur de la moyenne.

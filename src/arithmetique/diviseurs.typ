@@ -21,7 +21,9 @@
 //                                   décompositions, facteurs communs en couleur.
 //
 // n, num, den : entiers strictement positifs (pour un produit, écrire le
-// calcul Typst : calc.pow(2, 2) * 3 * 5 * 7 * 11).
+// calcul Typst : calc.pow(2, 2) * 3 * 5 * 7 * 11). Décomposition prévue pour
+// des entiers de taille scolaire : garantie jusqu'à 10^8 (au-delà, Typst peut
+// arrêter la recherche des facteurs, limitée à 10 000 tours de boucle).
 //
 // Clés (entre parenthèses : équivalent ProfLycee, puis défaut) :
 //

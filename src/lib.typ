@@ -19,7 +19,7 @@
 //   arithmetique/conversion-bases.typ
 //   arithmetique/division-eucl.typ
 //   arithmetique/diviseurs.typ
-//   probas/probas.typ
+//   probas/calculs-lois.typ
 //   probas/arbre-probas.typ
 //   probas/loi-graphe.typ
 //
@@ -65,7 +65,7 @@
 )
 
 // Probabilités
-#import "probas/probas.typ": (
+#import "probas/calculs-lois.typ": (
   loi-binomiale, loi-poisson, loi-geometrique, loi-hypergeometrique, loi-normale, loi-exponentielle,
   calc-binom-p, calc-binom-c, calc-poiss-p, calc-poiss-c, calc-geom-p, calc-geom-c,
   calc-hypergeom-p, calc-hypergeom-c, calc-norm-c, calc-expo-c,

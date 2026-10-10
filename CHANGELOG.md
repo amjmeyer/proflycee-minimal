@@ -29,6 +29,14 @@
 - `arbre-probas` et `arbre-div` partagent un même moteur d'arbre
   (`src/arbre.typ`, non exporté) ; rendu d'`arbre-probas` inchangé.
 - `src/` rangé par thème : `analyse/`, `arithmetique/`, `probas/`.
+- Tests unitaires (`tests/unitaires/`) et d'erreurs (`tests/erreurs/`),
+  lancés avec les tests visuels par `tests/lancer.sh`.
+- Corrigé : `cercle-trigo(point: 0)` plantait (arc de 0°).
+- Corrigé : `loi-geometrique(1)` plantait (`calc.pow(0, 0)`).
+- Corrigé : `div-eucl` et `division-eucl` débordaient près des bornes des
+  entiers 64 bits.
+- Les commandes de probabilités vérifient leur nombre d'arguments (message
+  rappelant la signature, au lieu de « missing argument »).
 - `_nombre` déplacé de `pgcd.typ` vers `outils.typ`, commun à plusieurs
   commandes.
 

@@ -213,18 +213,21 @@
     let bleu = rgb("#0074D9")
     let rouge = rgb("#C2150C")
     let r-arc = calc.min(0.5, R / 5)
-    arc(
-      (r-arc, 0),
-      start: 0deg,
-      stop: point * 1deg,
-      radius: r-arc,
-      stroke: purple + 1pt,
-      mark: (end: "stealth", fill: purple),
-    )
-    content(
-      ((r-arc + 0.18) * calc.cos(point / 2 * 1deg), (r-arc + 0.18) * calc.sin(point / 2 * 1deg)),
-      text(fill: purple, size: taille-angles, nom-angle),
-    )
+    // angle nul : pas d'arc à marquer (CeTZ refuse un arc de 0°)
+    if point != 0 {
+      arc(
+        (r-arc, 0),
+        start: 0deg,
+        stop: point * 1deg,
+        radius: r-arc,
+        stroke: purple + 1pt,
+        mark: (end: "stealth", fill: purple),
+      )
+      content(
+        ((r-arc + 0.18) * calc.cos(point / 2 * 1deg), (r-arc + 0.18) * calc.sin(point / 2 * 1deg)),
+        text(fill: purple, size: taille-angles, nom-angle),
+      )
+    }
     line((0, 0), (c, s), stroke: black + epaisseur)
     line((c, s), (c, 0), stroke: (paint: bleu, dash: "dashed", thickness: 0.8pt))
     line((c, s), (0, s), stroke: (paint: rouge, dash: "dashed", thickness: 0.8pt))
