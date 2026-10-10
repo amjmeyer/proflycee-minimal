@@ -1,0 +1,6 @@
+# PDF produits en testant les exemples
+*.pdf
+# Sorties des beta-tests
+tests/sortie/
+# Aide-mémoire personnel (pas sur GitHub)
+PUBLIER.md
