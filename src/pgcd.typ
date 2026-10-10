@@ -37,21 +37,7 @@
 //   D'après l'algorithme d'Euclide, #presentation-pgcd(150, 27, couleur-resultat: true).
 //   #remontee-euclide(150, 27)
 
-// Écriture française d'un entier : espace fine tous les 3 chiffres à partir
-// de 10 000 (2500 reste 2500, 13500 devient 13 500), signe moins typographique.
-#let _nombre(n) = {
-  let s = str(calc.abs(n))
-  if s.len() > 4 {
-    let groupes = ()
-    while s.len() > 3 {
-      groupes.insert(0, s.slice(s.len() - 3))
-      s = s.slice(0, s.len() - 3)
-    }
-    groupes.insert(0, s)
-    s = groupes.join(sym.space.thin)
-  }
-  if n < 0 { $-#s$ } else { $#s$ }
-}
+#import "outils.typ": _nombre
 
 // Divisions euclidiennes successives de a par b : tableau de
 // (dividende, diviseur, quotient, reste), jusqu'au reste nul compris.
