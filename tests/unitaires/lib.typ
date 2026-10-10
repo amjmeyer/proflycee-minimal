@@ -6,6 +6,7 @@
 #{
   let publiques = (
     "cercle-trigo", "cercle-trigo-dessin",
+    "resolution-approchee", "numworks-solveur", "numworks-graphique",
     "presentation-pgcd", "remontee-euclide",
     "reste-mod", "quo-mod", "modulo",
     "conversion-entre-bases", "conversion",

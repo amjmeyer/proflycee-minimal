@@ -1,7 +1,8 @@
 // Tests unitaires de src/probas/calculs-lois.typ.
 #import "aide.typ": *
 #import "/src/probas/calculs-lois.typ": *
-#import "/src/probas/calculs-lois.typ": _grouper, _decimal, _ln-fact, _ln-binom, _phi
+#import "/src/outils.typ": _grouper, _decimal
+#import "/src/probas/calculs-lois.typ": _ln-fact, _ln-binom, _phi
 
 #{
   // --- outils numériques ---------------------------------------------------

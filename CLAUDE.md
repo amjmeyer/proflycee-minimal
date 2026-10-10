@@ -11,6 +11,9 @@ Même organisation que `../to-be-published_profmaquette-minimal` (à imiter).
   commande ProfLycee → fonction Typst.
 - Une commande ProfLycee par fichier, rangée par thème dans `src/analyse/`,
   `src/arithmetique/` ou `src/probas/` (dossiers sans accent) : [src/analyse/cercle-trigo.typ](src/analyse/cercle-trigo.typ),
+  [src/analyse/resolution-approchee.typ](src/analyse/resolution-approchee.typ)
+  (§7 de la doc 4.02b), [src/analyse/numworks.typ](src/analyse/numworks.typ)
+  (écrans NumWorks dessinés, pas dans ProfLycee),
   [src/arithmetique/pgcd.typ](src/arithmetique/pgcd.typ) (`presentation-pgcd` et `remontee-euclide`,
   cette dernière absente de ProfLycee), [src/probas/calculs-lois.typ](src/probas/calculs-lois.typ)
   (calculs de probabilités, §52), [src/probas/arbre-probas.typ](src/probas/arbre-probas.typ)
@@ -36,7 +39,8 @@ Même organisation que `../to-be-published_profmaquette-minimal` (à imiter).
     vérifications automatiques (`assert`) ; outils dans
     [tests/unitaires/aide.typ](tests/unitaires/aide.typ) : `texte(c)`
     (contenu → texte brut comparable), `egal`, `proche`, `releve`/`couleurs`
-    (couleurs réellement employées) ;
+    (couleurs réellement employées), `releve-textes`/`textes` (textes
+    affichés, y compris dans un canvas CeTZ, que `texte` ne voit pas) ;
   - [tests/erreurs/](tests/erreurs/) — entrées invalides, chaque fichier doit
     échouer avec le message de sa 1re ligne (`// attendu : …`).
   Toute nouvelle commande : ajouter ses tests unitaires et d'erreurs.

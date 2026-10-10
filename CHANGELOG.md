@@ -29,6 +29,12 @@
 - `arbre-probas` et `arbre-div` partagent un même moteur d'arbre
   (`src/arbre.typ`, non exporté) ; rendu d'`arbre-probas` inchangé.
 - `src/` rangé par thème : `analyse/`, `arithmetique/`, `probas/`.
+- Résolution approchée d'une équation (§7 de ProfLycee 4.02b) :
+  `resolution-approchee`, qui renvoie un dictionnaire (`defaut`, `exces`,
+  `approchee`, et `valeur`, absente de ProfLycee) au lieu de macros.
+  Absent de ProfLycee : les écrans NumWorks dessinés `numworks-solveur` et
+  `numworks-graphique` (la doc de ProfLycee montre des captures d'écran).
+- `_grouper` et `_decimal` déplacés dans `outils.typ`.
 - Tests unitaires (`tests/unitaires/`) et d'erreurs (`tests/erreurs/`),
   lancés avec les tests visuels par `tests/lancer.sh`.
 - Corrigé : `cercle-trigo(point: 0)` plantait (arc de 0°).

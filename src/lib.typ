@@ -14,6 +14,8 @@
 //   outils.typ                   outils communs (non exportés)
 //   arbre.typ                    moteur commun des arbres (non exporté)
 //   analyse/cercle-trigo.typ
+//   analyse/resolution-approchee.typ
+//   analyse/numworks.typ          écrans NumWorks dessinés
 //   arithmetique/pgcd.typ
 //   arithmetique/modulo.typ
 //   arithmetique/conversion-bases.typ
@@ -24,6 +26,10 @@
 //   probas/loi-graphe.typ
 //
 // Correspondance avec ProfLycee :
+//   \ResolutionApprochee → resolution-approchee (renvoie un dictionnaire :
+//                         defaut, exces, approchee, valeur)
+//   (pas d'équivalent) →  numworks-solveur, numworks-graphique (écrans de
+//                         calculatrice dessinés, au lieu des captures de la doc)
 //   \CercleTrigo  →  cercle-trigo (canvas autonome)
 //                    cercle-trigo-dessin (éléments seuls, dans son propre canvas)
 //   \PresentationPGCD  →  presentation-pgcd
@@ -53,6 +59,8 @@
 
 // Analyse
 #import "analyse/cercle-trigo.typ": cercle-trigo, cercle-trigo-dessin
+#import "analyse/resolution-approchee.typ": resolution-approchee
+#import "analyse/numworks.typ": numworks-solveur, numworks-graphique
 
 // Arithmétique
 #import "arithmetique/pgcd.typ": presentation-pgcd, remontee-euclide

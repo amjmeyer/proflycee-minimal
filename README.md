@@ -3,7 +3,9 @@
 Quelques commandes du package LaTeX
 [ProfLycee](https://ctan.org/pkg/proflycee) de **Cédric Pierquet**, portées en
 Typst (avec [CeTZ](https://typst.app/universe/package/cetz)). Pour l'instant :
-le cercle trigonométrique (`\CercleTrigo`), la présentation de l'algorithme
+le cercle trigonométrique (`\CercleTrigo`), la résolution approchée d'une
+équation par dichotomie (`\ResolutionApprochee`), illustrée par des écrans de
+calculatrice NumWorks dessinés, la présentation de l'algorithme
 d'Euclide (`\PresentationPGCD`), complétée par sa remontée automatique
 (coefficients de Bézout), absente de ProfLycee, et les probabilités : calculs
 avec les lois classiques (`\CalcBinomP`, `\BinomP`, …), arbres
@@ -34,7 +36,8 @@ $1234 equiv #m26(1234) space [26]$
 > de façon incompatible entre deux versions `0.x`.
 
 *A few commands from Cédric Pierquet's LaTeX package ProfLycee, ported to Typst
-(in French). For now: the trigonometric circle, Euclid's algorithm with
+(in French). For now: the trigonometric circle, approximate equation solving
+(bisection) with drawn NumWorks calculator screens, Euclid's algorithm with
 automatic back-substitution (Bézout coefficients), probability computations
 for the usual distributions, probability trees and small sketches of normal
 and exponential densities, modular reduction, base conversions,

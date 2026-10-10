@@ -57,3 +57,15 @@
   c
 }
 #let couleurs(cle) = state(cle, ()).final().dedup().filter(f => f != black)
+
+// Textes réellement affichés (y compris dans un canvas CeTZ, invisible pour
+// texte()) : releve-textes(clé, c), puis, dans un context, textes(clé) donne
+// leur concaténation.
+#let releve-textes(cle, c) = {
+  show text: it => {
+    state(cle, ()).update(l => l + (it.text,))
+    it
+  }
+  c
+}
+#let textes(cle) = state(cle, ()).final().join("")
