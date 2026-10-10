@@ -4,7 +4,7 @@
 
 #liste-div(150) \
 
-#liste-div(300, scr: true) \
+#liste-div(300, scr: false) \
 
 #liste-div(60, aff-nom: false) \
 

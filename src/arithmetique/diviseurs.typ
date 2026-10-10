@@ -28,7 +28,7 @@
 // liste-div
 //   aff-nom          (AffNom)          afficher « D_n = » ............... true
 //   scr              (version étoilée) nom en écriture ronde (scr), au
-//                                      lieu de calligraphique (cal) ..... false
+//                                      lieu de calligraphique (cal) ..... true
 // arbre-div
 //   espace-niveau    (EspaceNiveau)    écart horizontal entre niveaux ... 2.25
 //   espace-feuille   (EspaceFeuille)   écart vertical entre feuilles .... 0.66
@@ -90,7 +90,7 @@
 // Facteurs répétés, dans l'ordre croissant : 12 → (2, 2, 3).
 #let _facteurs-longs(n) = _facteurs(n).map(((p, a)) => (p,) * a).flatten()
 
-#let liste-div(n, aff-nom: true, scr: false) = {
+#let liste-div(n, aff-nom: true, scr: true) = {
   _entier-positif(n, "liste-div")
   let petits = range(1, calc.floor(calc.sqrt(n)) + 1).filter(d => calc.rem(n, d) == 0)
   let grands = petits.rev().map(d => calc.quo(n, d)).filter(d => d * d != n)

@@ -21,9 +21,11 @@
 - Diviseurs et facteurs premiers (§60), sous des noms abrégés :
   `liste-div` (`\ListeDiviseurs`), `arbre-div` (`\ArbreDiviseurs`),
   `dpfp` (`\DecompFactPremiers`), `prespfp` (`\PresFactPremiers`),
-  `simpfrac` (`\SimplFracDecomp`). Absent de ProfLycee : `arbre-div-dessin`, et dans `simpfrac`, la clé
-  `aff-couleur` (couleurs désactivées par défaut) et, avec `barrer`, une
-  couleur par nombre premier commun (clé `couleurs-barres`).
+  `simpfrac` (`\SimplFracDecomp`). Absent de ProfLycee : `arbre-div-dessin`,
+  `liste-div` écrit le nom de l'ensemble en écriture ronde par défaut
+  (`scr: true`), et dans `simpfrac`, la clé `aff-couleur` (couleurs
+  désactivées par défaut) et, avec `barrer`, une couleur par nombre premier
+  commun (clé `couleurs-barres`).
 - `arbre-probas` et `arbre-div` partagent un même moteur d'arbre
   (`src/arbre.typ`, non exporté) ; rendu d'`arbre-probas` inchangé.
 - `src/` rangé par thème : `analyse/`, `arithmetique/`, `probas/`.
