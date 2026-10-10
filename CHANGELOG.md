@@ -52,6 +52,3 @@
   rappelant la signature, au lieu de « missing argument »).
 - `_nombre` déplacé de `pgcd.typ` vers `outils.typ`, commun à plusieurs
   commandes.
-
-## 0.1.0 — version de départ
- 
