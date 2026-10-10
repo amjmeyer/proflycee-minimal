@@ -12,9 +12,13 @@
 //   lib.typ                  ce fichier
 //   deps.typ                 dépendances externes (cetz)
 //   cercle-trigo.typ         une commande ProfLycee par fichier
+//   pgcd.typ
 //
 // Correspondance avec ProfLycee :
 //   \CercleTrigo  →  cercle-trigo (canvas autonome)
 //                    cercle-trigo-dessin (éléments seuls, dans son propre canvas)
+//   \PresentationPGCD  →  presentation-pgcd
+//   (pas d'équivalent) →  remontee-euclide (remontée de l'algorithme, Bézout)
 
 #import "cercle-trigo.typ": cercle-trigo, cercle-trigo-dessin
+#import "pgcd.typ": presentation-pgcd, remontee-euclide

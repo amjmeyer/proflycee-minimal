@@ -4,10 +4,11 @@ version = "0.1.0"
 entrypoint = "src/lib.typ"
 authors = ["Arthur Meyer"]
 license = "MIT"
-description = "Some ProfLycee commands for math teachers: trigonometric circle"
+description = "Draw trigonometric circles and lay out Euclid's algorithm, after ProfLycee"
 repository = "https://github.com/amjmeyer/proflycee-minimal"
 keywords = [
   "ProfLycee", "cercle trigonométrique", "trigonometric circle", "unit circle",
+  "PGCD", "GCD", "Euclide", "Euclid", "Bézout",
   "lycée", "enseignement", "teaching", "cetz",
 ]
 categories = ["visualization", "components"]

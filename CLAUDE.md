@@ -9,8 +9,10 @@ Même organisation que `../to-be-published_profmaquette-minimal` (à imiter).
 - [src/lib.typ](src/lib.typ) — point d'entrée (déclaré dans `typst.toml`), ne
   fait qu'exporter les fonctions publiques ; tient la table de correspondance
   commande ProfLycee → fonction Typst.
-- Une commande ProfLycee par fichier : [src/cercle-trigo.typ](src/cercle-trigo.typ)
-  (clés documentées en commentaire en tête du fichier : source de vérité).
+- Une commande ProfLycee par fichier : [src/cercle-trigo.typ](src/cercle-trigo.typ),
+  [src/pgcd.typ](src/pgcd.typ) (`presentation-pgcd` et `remontee-euclide`,
+  cette dernière absente de ProfLycee). Clés documentées en commentaire en
+  tête de chaque fichier : source de vérité.
 - [src/deps.typ](src/deps.typ) — seul endroit qui importe `@preview/cetz`.
 - [tests/beta/](tests/beta/) — un cas par fichier, compilés par
   `tests/lancer.sh` (sortie dans `tests/sortie/`, ignorée par git) ; contrôle
@@ -33,6 +35,12 @@ Même organisation que `../to-be-published_profmaquette-minimal` (à imiter).
   des clés), ne jamais recopier ni traduire son code source LPPL.
 
 ## Pièges connus
+
+- Grilles Typst : l'espacement s'écrit `column-gutter` / `row-gutter`, pas
+  `column-gap` (erreur « unexpected argument »).
+- `presentation-pgcd` renvoie des maths en ligne : le tableau est une `box`
+  dont la `baseline` (50 % − 0,25 em) la centre sur l'axe mathématique, sinon
+  l'accolade et le trait de `lr(…)` descendent bien trop bas.
 
 - Dans `cercle-trigo-dessin`, les clés `cos` et `sin` masquent les opérateurs
   mathématiques : écrire `#math.cos` / `#math.sin` dans les `$…$`.
