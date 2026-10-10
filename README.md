@@ -4,7 +4,8 @@ Quelques commandes du package LaTeX
 [ProfLycee](https://ctan.org/pkg/proflycee) de **Cédric Pierquet**, portées en
 Typst (avec [CeTZ](https://typst.app/universe/package/cetz)). Pour l'instant :
 le cercle trigonométrique (`\CercleTrigo`), la résolution approchée d'une
-équation par dichotomie (`\ResolutionApprochee`), illustrée par des écrans de
+équation par dichotomie (`\ResolutionApprochee`), les suites récurrentes
+(`\CalculTermeRecurrence`, `\SolutionSeuil`), illustrées par des écrans de
 calculatrice NumWorks dessinés, la présentation de l'algorithme
 d'Euclide (`\PresentationPGCD`), complétée par sa remontée automatique
 (coefficients de Bézout), absente de ProfLycee, et les probabilités : calculs
@@ -37,7 +38,7 @@ $1234 equiv #m26(1234) space [26]$
 
 *A few commands from Cédric Pierquet's LaTeX package ProfLycee, ported to Typst
 (in French). For now: the trigonometric circle, approximate equation solving
-(bisection) with drawn NumWorks calculator screens, Euclid's algorithm with
+(bisection) and recursive sequences, with drawn NumWorks calculator screens, Euclid's algorithm with
 automatic back-substitution (Bézout coefficients), probability computations
 for the usual distributions, probability trees and small sketches of normal
 and exponential densities, modular reduction, base conversions,

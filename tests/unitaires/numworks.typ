@@ -1,7 +1,7 @@
 // Tests unitaires de src/analyse/numworks.typ.
 #import "aide.typ": *
 #import "/src/analyse/resolution-approchee.typ": resolution-approchee
-#import "/src/analyse/numworks.typ": numworks-solveur, numworks-graphique, _nombre-ecran, _pas, _pas-passant-par
+#import "/src/analyse/numworks.typ": numworks-solveur, numworks-graphique, numworks-suite, _nombre-ecran, _pas, _pas-passant-par
 
 #{
   // nombres comme sur la calculatrice : point, chiffres significatifs, tiret
@@ -57,6 +57,8 @@
   fenetre: (-4, 14, -1, 8),
 ))
 #releve-textes("grand-k", numworks-graphique(resolution-approchee(x => 1000 * x * x, k: 50, intervalle: (0, 1))))
+#releve-textes("suite", numworks-suite(x => 1 + (1 + x * x) / (1 + x), no: 1, uno: 2))
+#releve-textes("suite-seuil", numworks-suite(x => 1 + (1 + x * x) / (1 + x), no: 1, uno: 2, debut: 25, nom-suite: "v", surligne: (28, 29)))
 #releve-textes("zeros", numworks-graphique(resolution-approchee(x => x * x - 2, intervalle: (0, 2))))
 #context {
   let t = textes("solveur")
@@ -75,7 +77,23 @@
   let g = state("grand-k", ()).final()
   assert("50" in g, message: "graphique : graduation k = 50 absente")
   assert(g.filter(t => t.match(regex("^-?[0-9.]+$")) != none).len() <= 10, message: "graphique : trop d'étiquettes " + repr(g))
+  // écran Suites : onglets, en-têtes, 9 lignes de n et u_n (7 chiffres)
+  let t = state("suite", ()).final()
+  for m in ("SUITES", "Suites", "Graphique", "Tableau", "n", "u", "2", "2.666667", "3.212121", "4.86809", "5.531033") {
+    assert(m in t, message: "suite : « " + m + " » absent de " + repr(t))
+  }
+  egal(t.filter(x => x.match(regex("^[0-9]$")) != none), ("1", "2", "2", "3", "4", "5", "6", "7", "8", "9"), quoi: "suite : rangs 1 à 9 (et u_1 = 2)")
+  let t = state("suite-seuil", ()).final()
+  assert("25" in t and "33" in t and not ("34" in t) and not ("24" in t), message: "suite : debut 25, 9 lignes")
+  assert("9.94083" in t and "10.12363" in t and "v" in t, message: "suite : valeurs autour du seuil")
   assert(textes("zeros").contains("Zéros") and textes("zeros").contains("f(x)=0"), message: "graphique : Zéros si k = 0")
+}
+
+// écran Suites : taille, et 9 lignes dans l'écran (pas de débordement)
+#context {
+  let m = measure(numworks-suite(x => x / 2, uno: 1e6, largeur: 6cm))
+  proche(m.width / 6cm, 1, tol: 0.01, quoi: "suite : largeur")
+  proche(m.height / m.width, 0.75, tol: 0.01, quoi: "suite : proportions")
 }
 
 // fenêtres variées : auto, imposée, solution hors fenêtre, courbe qui sort

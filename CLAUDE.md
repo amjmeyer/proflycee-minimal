@@ -12,8 +12,9 @@ Même organisation que `../to-be-published_profmaquette-minimal` (à imiter).
 - Une commande ProfLycee par fichier, rangée par thème dans `src/analyse/`,
   `src/arithmetique/` ou `src/probas/` (dossiers sans accent) : [src/analyse/cercle-trigo.typ](src/analyse/cercle-trigo.typ),
   [src/analyse/resolution-approchee.typ](src/analyse/resolution-approchee.typ)
-  (§7 de la doc 4.02b), [src/analyse/numworks.typ](src/analyse/numworks.typ)
-  (écrans NumWorks dessinés, pas dans ProfLycee),
+  (§7 de la doc 4.02b), [src/analyse/suites.typ](src/analyse/suites.typ)
+  (§9), [src/analyse/numworks.typ](src/analyse/numworks.typ) (écrans
+  NumWorks dessinés — Solveur, Fonctions, Suites —, pas dans ProfLycee),
   [src/arithmetique/pgcd.typ](src/arithmetique/pgcd.typ) (`presentation-pgcd` et `remontee-euclide`,
   cette dernière absente de ProfLycee), [src/probas/calculs-lois.typ](src/probas/calculs-lois.typ)
   (calculs de probabilités, §52), [src/probas/arbre-probas.typ](src/probas/arbre-probas.typ)

@@ -34,6 +34,13 @@
   `approchee`, et `valeur`, absente de ProfLycee) au lieu de macros.
   Absent de ProfLycee : les écrans NumWorks dessinés `numworks-solveur` et
   `numworks-graphique` (la doc de ProfLycee montre des captures d'écran).
+- Suites récurrentes simples (§9 de ProfLycee 4.02b) :
+  `calcul-terme-recurrence`, `solution-seuil`, `rang-seuil` (le compteur
+  `\CompteurSeuil`). Absent de ProfLycee : la fabrique `suite-recurrente`,
+  la clé `brut`, et l'écran NumWorks `numworks-suite` (tableau n | u_n,
+  clés `debut` et `surligne`) qui remplace le tableau de la doc. Précision
+  par défaut de `solution-seuil` : 3, comme dans l'exemple de la doc (son
+  texte annonce 2).
 - `_grouper` et `_decimal` déplacés dans `outils.typ`.
 - Tests unitaires (`tests/unitaires/`) et d'erreurs (`tests/erreurs/`),
   lancés avec les tests visuels par `tests/lancer.sh`.

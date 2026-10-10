@@ -6,7 +6,8 @@
 #{
   let publiques = (
     "cercle-trigo", "cercle-trigo-dessin",
-    "resolution-approchee", "numworks-solveur", "numworks-graphique",
+    "resolution-approchee", "numworks-solveur", "numworks-graphique", "numworks-suite",
+    "calcul-terme-recurrence", "suite-recurrente", "solution-seuil", "rang-seuil",
     "presentation-pgcd", "remontee-euclide",
     "reste-mod", "quo-mod", "modulo",
     "conversion-entre-bases", "conversion",

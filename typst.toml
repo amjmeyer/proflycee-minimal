@@ -8,7 +8,7 @@ description = "Trigonometric circles, Euclid's algorithm, probability computatio
 repository = "https://github.com/amjmeyer/proflycee-minimal"
 keywords = [
   "ProfLycee", "cercle trigonométrique", "trigonometric circle", "unit circle",
-  "dichotomie", "bisection", "NumWorks",
+  "dichotomie", "bisection", "NumWorks", "suites", "sequences", "seuil",
   "PGCD", "GCD", "Euclide", "Euclid", "Bézout",
   "probabilités", "probability", "arbre", "tree", "loi normale", "binomiale",
   "modulo", "division euclidienne", "Euclidean division", "base conversion",

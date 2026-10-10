@@ -19,6 +19,13 @@
 //   #let s = resolution-approchee(x => calc.pow(x, 3) - 2 * x * x - x - 1, k: 2, intervalle: (0, 10))
 //   #numworks-solveur(s) #numworks-graphique(s, fenetre: (-1, 4, -4, 6))
 //
+// et, pour une suite récurrente u(n+1) = f(u(n)) (suites.typ) :
+//
+//   #numworks-suite(f, no:, uno:, clés) -> application Suites, onglet
+//                                          Tableau : colonnes n et u_n.
+//
+//   #numworks-suite(x => 1 + (1 + x * x) / (1 + x), no: 1, uno: 2)
+//
 // Clés communes :
 //
 //   largeur   largeur de l'écran (proportions de l'écran réel, 320 × 240) . 6cm
@@ -44,6 +51,14 @@
 // Si k ≠ 0, k est une graduation de l'axe des ordonnées (on lit 4 au niveau
 // du point pour f(t) = 4) : pas k/m si cela donne une graduation lisible,
 // sinon pas rond et graduation k ajoutée à part.
+//
+// Clés de numworks-suite :
+//
+//   no, uno     rang et terme initiaux (uno obligatoire) ......... 0, —
+//   debut       premier rang affiché (auto : no) ; l'écran montre
+//               9 lignes, par exemple debut: N - 4 autour d'un seuil  auto
+//   nom-suite   nom de la suite ................................... "u"
+//   surligne    rangs dont la ligne est mise en valeur (seuil) .... ()
 //
 // Les nombres sont écrits comme sur la calculatrice : point décimal, 10
 // chiffres significatifs (7 sous le graphique).
@@ -204,3 +219,39 @@
   content((8, 9), police(9, "x=" + _nombre-ecran(s.valeur, 7)), anchor: "west")
   content((240, 9), police(9, "f(x)=" + _nombre-ecran(s.k, 7)), anchor: "west")
 }, largeur)
+
+#let numworks-suite(f, no: 0, uno: none, debut: auto, nom-suite: "u", surligne: (), largeur: 6cm) = {
+  assert(uno != none, message: "numworks-suite : clé uno (terme initial) obligatoire")
+  let debut = if debut == auto { no } else { debut }
+  assert(type(debut) == int and debut >= no, message: "numworks-suite : debut doit être un entier ⩾ no")
+  // termes u_no, …, u_(debut + 8)
+  let termes = (float(uno),)
+  for _ in range(debut + 8 - no) { termes.push(float(f(termes.last()))) }
+  _ecran("Suites", police => {
+    import cetz.draw: *
+    // onglets, l'onglet Tableau sélectionné
+    rect((0, 202), (320, 222), fill: _gris-fonce, stroke: none)
+    for (i, nom) in ("Suites", "Graphique", "Tableau").enumerate() {
+      if i == 2 { rect((214, 203), (319, 221), fill: _gris-clair, stroke: none) }
+      content((53 + 107 * i, 212), police(9, fill: if i == 2 { black } else { white }, nom))
+    }
+    rect((0, 0), (320, 202), fill: _fond, stroke: none)
+    // en-têtes n et u_n, puis 9 lignes
+    let (x0, x1, x2) = (10, 90, 250)
+    let h = 19 // en-tête + 9 lignes = 190 px : tout tient sous les onglets
+    let haut = 194
+    rect((x0, haut - h), (x1, haut), fill: _entete-tableau, stroke: _gris-clair + 0.5pt)
+    content(((x0 + x1) / 2, haut - h / 2), police(10)[n])
+    rect((x1, haut - h), (x2, haut), fill: _entete-tableau, stroke: _gris-clair + 0.5pt)
+    content(((x1 + x2) / 2, haut - h / 2), police(10)[#nom-suite#sub[n]])
+    for i in range(9) {
+      let n = debut + i
+      let y = haut - h * (i + 2)
+      let fond = if n in surligne { _bandeau.lighten(60%) } else { white }
+      rect((x0, y), (x1, y + h), fill: fond, stroke: _gris-clair + 0.5pt)
+      content(((x0 + x1) / 2, y + h / 2), police(10, str(n)))
+      rect((x1, y), (x2, y + h), fill: fond, stroke: _gris-clair + 0.5pt)
+      content((x2 - 6, y + h / 2), police(10, _nombre-ecran(termes.at(n - no), 7)), anchor: "east")
+    }
+  }, largeur)
+}
