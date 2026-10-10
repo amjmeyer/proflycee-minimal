@@ -1,6 +1,6 @@
 # Historique des versions
 
-## Non publié
+## 0.1.0 — première version publiée
 
 - Probabilités (§52 de ProfLycee) : `calc-binom-p`, `binom-p`, etc. pour
   les lois binomiale, de Poisson, géométrique, hypergéométrique, normale et

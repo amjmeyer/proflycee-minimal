@@ -47,6 +47,27 @@ for f in tests/beta/*.typ; do
   fi
 done
 
+# Exemples du README : extraits à chaque lancement (le README ne se périme
+# pas), l'import @preview remplacé par le src/ local
+if garder readme; then
+  python3 - > tests/sortie/readme.typ <<'PY'
+import re
+blocs = re.findall(r"```typ\n(.*?)```", open("README.md").read(), re.S)
+print('#import "/src/lib.typ": *')
+print('#set page(width: 18cm, height: auto, margin: 1cm)')
+for b in blocs:
+    print(re.sub(r'#import "@preview/proflycee-minimal:[^"]*": \*\n', "", b))
+    print("#line(length: 100%)")
+PY
+  messages=$("$TYPST" compile --root . tests/sortie/readme.typ tests/sortie/readme.pdf 2>&1)
+  if echo "$messages" | grep -qi '^error'; then
+    printf '%-36s %s\n' "readme (exemples)" "ERREUR"; ECHECS=$((ECHECS + 1))
+    echo "$messages" | grep -iE '^error|┌─' | head -2 | sed 's/^/    /'
+  else
+    printf '%-36s %s\n' "readme (exemples)" "ok"
+  fi
+fi
+
 echo "== unitaires"
 for f in tests/unitaires/*.typ; do
   nom=$(basename "$f" .typ)

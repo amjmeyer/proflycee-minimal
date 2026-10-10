@@ -4,7 +4,7 @@ version = "0.1.0"
 entrypoint = "src/lib.typ"
 authors = ["Arthur Meyer"]
 license = "MIT"
-description = "Trigonometric circles, Euclid's algorithm, probability computations, trees and density sketches, after ProfLycee"
+description = "French high-school maths after ProfLycee: trigonometric circle, equations, sequences, NumWorks screens, arithmetic, probability"
 repository = "https://github.com/amjmeyer/proflycee-minimal"
 keywords = [
   "ProfLycee", "cercle trigonométrique", "trigonometric circle", "unit circle",
@@ -17,5 +17,5 @@ keywords = [
 ]
 categories = ["visualization", "components"]
 disciplines = ["education", "mathematics"]
-compiler = "0.13.0"
+compiler = "0.14.0"
 exclude = ["docs/*", "tests/*", "PUBLIER.md", "CHANGELOG.md", "CLAUDE.md"]

@@ -44,6 +44,8 @@ Même organisation que `../to-be-published_profmaquette-minimal` (à imiter).
     affichés, y compris dans un canvas CeTZ, que `texte` ne voit pas) ;
   - [tests/erreurs/](tests/erreurs/) — entrées invalides, chaque fichier doit
     échouer avec le message de sa 1re ligne (`// attendu : …`).
+  - les exemples du README (blocs ```typ), extraits et compilés à chaque
+    lancement (sortie `tests/sortie/readme.pdf`) ;
   Toute nouvelle commande : ajouter ses tests unitaires et d'erreurs.
 - `PUBLIER.md` — procédure de publication (pas sur GitHub).
 
