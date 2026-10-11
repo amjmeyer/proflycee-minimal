@@ -97,6 +97,7 @@ Même organisation que `../to-be-published_profmaquette-minimal` (à imiter).
   `repr` : pour les tester, mesurer (`measure`) ou relever avec une règle
   `show` (voir `releve` dans `tests/unitaires/aide.typ`).
 - Une fonction locale (closure) ne peut pas modifier une variable extérieure.
-- Le dossier `src/` est relié par lien symbolique depuis
-  `MATHEMATIQUES/PREAMBULE_PERSO_Typst/proflycee-minimal` (relais
-  `proflycee-dev.typ`) : toute modification s'applique aussitôt aux cours.
+- Les cours utilisent CE dossier : `@local/proflycee-minimal:0.1.0` y est
+  lié par `../../installer.sh` et importé dans `preambule-perso/src/deps.typ`.
+  Toute modification de `src/` s'applique aussitôt aux cours : lancer
+  `tests/lancer.sh` avant de les recompiler.
