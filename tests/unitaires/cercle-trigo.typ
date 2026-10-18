@@ -50,6 +50,42 @@
 // autres clés
 #cercle-trigo(rayon: 2.5, epaisseur: 2pt, marge: 0.5, taille-valeurs: 5pt, taille-angles: 10pt, couleur-fond: yellow.lighten(80%), decal: 4pt)
 
+// clés absentes de ProfLycee : interrupteur des remarquables, couleur, sens
+// direct, origine, graduations, vecteurs, points des angles sans les angles
+#cercle-trigo(rayon: 1.5, aff-remarquables: false, couleur-cercle: blue, aff-sens: true, aff-origine: true, aff-graduations: true, aff-vecteurs: true)
+#cercle-trigo(rayon: 2, aff-valeurs: false, aff-angles: false, aff-points: true)
+#cercle-trigo(rayon: 2, aff-points: false)
+#cercle-trigo(rayon: 2, aff-remarquables: false, aff-points: true, aff-axes: false)
+
+// aff-remarquables: false l'emporte sur les clés de ProfLycee
+#context {
+  let a = measure(cercle-trigo(rayon: 1, aff-remarquables: false))
+  let b = measure(cercle-trigo(rayon: 1, aff-remarquables: false, aff-valeurs: true, aff-angles: true))
+  let c = measure(cercle-trigo(rayon: 1, aff-valeurs: false, aff-angles: false, aff-traits: false))
+  egal(a, b, quoi: "remarquables coupés")
+  egal(a, c, quoi: "équivaut aux trois clés")
+}
+
+// angles : nombre de degrés ou angle Typst, même figure
+#context {
+  let deg = measure(cercle-trigo(rayon: 1, aff-remarquables: false, point: 135, points: ((angle: 200, nom: $P$),), arcs: ((de: 0, a: 60),)))
+  let rad = measure(cercle-trigo(rayon: 1, aff-remarquables: false, point: 3 * calc.pi / 4 * 1rad, points: ((angle: 200deg, nom: $P$),), arcs: ((de: 0deg, a: calc.pi / 3 * 1rad),)))
+  egal(deg, rad, quoi: "degrés ou angle Typst")
+}
+#cercle-trigo(rayon: 1.5, aff-remarquables: false, equation-cos: true, cos: 60deg, equation-sin: true, sin: calc.pi / 6 * 1rad)
+
+// éléments ajoutés : points (axes compris, ancre imposée), angles au centre,
+// arcs (plus d'un tour), rayons, axe réel et enroulements (réels négatifs,
+// nuls, de plus d'un tour)
+#cercle-trigo(rayon: 1.5, aff-remarquables: false, points: range(-360, 361, step: 45).map(a => (angle: a, nom: $P$)) + ((angle: 100, nom: $Q$, ancre: "north", couleur: red),))
+#cercle-trigo(rayon: 2, aff-remarquables: false, aff-axes: false, taille-noms: 12pt,
+  angles: ((de: 0, a: 1rad, nom: $1$, fond: gray), (de: 200, a: -30)),
+  arcs: ((de: 0, a: 57.3, fleche: true, nom: [arc]), (de: 90, a: 450, couleur: blue, epaisseur: 0.5pt)),
+  rayons: ((angle: 0, nom: $A$, etiquette: $1$), (angle: 135, nom: $B$, couleur: green, fleche: true, copie: (-2, 1), nom-copie: $arrow(u)$)))
+#cercle-trigo(rayon: 1, aff-remarquables: false, aff-axe-reel: true,
+  enroulements: ((x: 2, nom: $M$), (x: -1, couleur: orange), (x: 0), (x: 9, segment: false, arc: false)),
+  intervalles: ((de: -1, a: 2), (de: 3, a: 0, couleur: blue, epaisseur: 1pt)))
+
 // version dessin dans un canvas
 #cetz.canvas({
   cercle-trigo-dessin(rayon: 1, aff-valeurs: false)

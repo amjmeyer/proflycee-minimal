@@ -2,6 +2,24 @@
 
 ## Non publié
 
+- `cercle-trigo` : clés absentes de ProfLycee, sans effet par défaut
+  (description complète en tête de `src/analyse/cercle-trigo.typ`) :
+  - interrupteur `aff-remarquables` (false : ni valeurs, ni angles, ni
+    traits) ;
+  - repère : `aff-axes`, `aff-origine`, `aff-graduations` (±1),
+    `aff-vecteurs` (i et j, les axes perdent alors leur flèche), `aff-sens`
+    (flèche « + » du sens direct), `aff-axe-reel`, `couleur-cercle`,
+    `aff-points` (points remarquables sans les angles : gabarit vierge) ;
+  - éléments ajoutés, listes de dictionnaires aux champs communs (`angle`,
+    `de`, `a`, `nom`, `couleur`, `epaisseur`, `fleche`) : `points`,
+    `rayons` (avec `etiquette` au milieu et `copie`, représentant du même
+    vecteur ailleurs dans le plan), `arcs`, `angles` (angle au centre,
+    secteur rempli avec `fond`), `enroulements` (enroulement de la droite
+    réelle : segment, arc, spirale), `intervalles` (segments de la droite
+    réelle) ; noms à la taille `taille-noms`, placés hors du cercle sans
+    chevaucher les axes ; un champ inconnu est une erreur.
+- `cercle-trigo` : tous les angles (y compris `point`, `cos`, `sin`) se
+  donnent en degrés ou en angle Typst (`45deg`, `calc.pi / 4 * 1rad`).
 - `arbre-probas` : la place d'une proba « dessus » ou
   « dessous » tient compte de tout son tracé (overline, parenthèses
   agrandies) : `$P_A(overline(B))$` ne chevauche plus la branche.

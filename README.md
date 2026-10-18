@@ -50,6 +50,11 @@ directement.
 ```typ
 #cercle-trigo(rayon: 2.5, equation-sin: true, sin: -30, aff-valeurs: false)
 
+// clés absentes de ProfLycee : enroulement de la droite réelle, angle orienté…
+// (exemples : tests/beta/21-cercle-trigo-ajouts.typ)
+#cercle-trigo(rayon: 1, aff-remarquables: false, aff-sens: true,
+  aff-axe-reel: true, enroulements: ((x: 2, nom: $M(2)$),))
+
 #let s = resolution-approchee(x => calc.pow(x, 3) - 2 * x * x - x - 1, k: 2, intervalle: (0, 10))
 $x_0 approx #s.defaut$ par défaut, $x_0 approx #s.exces$ par excès.
 #numworks-solveur(s) #numworks-graphique(s, fenetre: (-1, 4, -4, 6))
