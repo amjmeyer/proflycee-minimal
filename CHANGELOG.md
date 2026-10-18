@@ -1,5 +1,11 @@
 # Historique des versions
 
+## Non publié
+
+- `arbre-probas` : la place d'une proba « dessus » ou
+  « dessous » tient compte de tout son tracé (overline, parenthèses
+  agrandies) : `$P_A(overline(B))$` ne chevauche plus la branche.
+
 ## 0.1.0 — première version publiée
 
 - Probabilités (§52 de ProfLycee) : `calc-binom-p`, `binom-p`, etc. pour
